@@ -34,7 +34,7 @@ Passos
     Configure as Variáveis de Ambiente:
     Copie o arquivo de exemplo .env.example para um novo arquivo chamado .env.
     cp .env.example .env
-    O arquivo .env já contém valores padrão para rodar localmente, mas você pode ajustar a SECRET_KEY se desejar.
+    O arquivo .env já contém valores padrão para rodar localmente.
     
     Inicie os Containers:
     Use o Docker Compose para construir as imagens e iniciar os containers da aplicação e do banco de dados.
