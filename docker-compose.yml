@@ -1,0 +1,50 @@
+version: '3.8'
+
+# Define os serviços (containers) que compõem a aplicação.
+services:
+  # Serviço do banco de dados PostgreSQL
+  db:
+    # Usa a imagem oficial do PostgreSQL, versão 15.
+    image: postgres:15
+    # Define o nome do container do db.
+    container_name: aiqfome_db
+    # Carrega as variáveis de ambiente do arquivo .env.
+    env_file:
+      - ./.env
+    # Mapeia um volume nomeado 'postgres_data' para o diretório de dados do PostgreSQL dentro do container.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    # Mapeia a porta 5432 do container para a porta 5432 da máquina host.
+    ports:
+      - "5432:5432"
+    # Define uma verificação de saúde para garantir que o serviço da API só inicie
+    # quando o banco de dados estiver realmente pronto para aceitar conexões.
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Serviço da nossa API FastAPI
+  api:
+    container_name: aiqfome_api
+    # Constrói a imagem da API a partir do Dockerfile localizado no diretório atual ('.').
+    build: .
+    # Carrega as variáveis de ambiente do arquivo .env para a API.
+    env_file:
+      - ./.env
+    # Mapeia a porta 8000 do container para a porta 8000 da máquina host.
+    ports:
+      - "8000:8000"
+    # Mapeia o diretório local 'app' para o diretório '/code/app' dentro do container.
+    volumes:
+      - ./aiqfome:/app/aiqfome
+    # Define que este serviço (api) depende do serviço 'db'.
+    depends_on:
+      db:
+        condition: service_healthy
+
+# Define os volumes nomeados que podem ser compartilhados entre os serviços.
+volumes:
+  # Declara o volume 'postgres_data' que será usado pelo serviço 'db'.
+  postgres_data:
