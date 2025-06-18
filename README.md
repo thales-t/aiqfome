@@ -15,7 +15,7 @@ Clientes <br>
 <br>
 Favoritos<br>
     POST /clients/me/favorites/: Adiciona um produto à lista de favoritos do cliente autenticado. Requer o product_id.<br>
-    GET /clients/me/favorites/: Lista todos os produtos favoritos do cliente autenticado. A API busca os IDs no banco de dados local e, em seguida, enriquece esses dados com as informações completas da FakeStoreAPI (título, imagem, preço).<br>
+    GET /clients/me/favorites/: Lista todos os produtos favoritos do cliente autenticado.<br>
     DELETE /clients/me/favorites/{product_id}: Remove um produto da lista de favoritos do cliente autenticado.<br>
 <br>
 2. Como Rodar o Projeto<br>
