@@ -11,10 +11,6 @@ from sqlalchemy.pool import StaticPool
 from httpx import ASGITransport, AsyncClient
 
 
-# Importamos explicitamente os modelos para garantir que o SQLAlchemy (Base.metadata)
-# saiba quais tabelas criar ANTES que a fixture 'db_setup_and_teardown' seja executada.
-from aiqfome import models
-
 from aiqfome.database import Base, get_db
 from aiqfome.main import create_app 
 
@@ -46,12 +42,6 @@ async def db_setup_and_teardown():
         yield session
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all) # Clean up after tests
-
-# # Fixture que substitui a dependência get_db pela sessão de teste em memória
-# @pytest.fixture(scope="function")
-# async def db_session() -> AsyncGenerator[AsyncSession, None]:
-#     async with TestingSessionLocal() as session:
-#         yield session
 
 
 # Fixture do TestClient
