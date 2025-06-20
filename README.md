@@ -23,7 +23,7 @@ Docker e Docker Compose
 <br><br>
 Passos:<br>
 Clone o Repositório:<br>
-    git clone url-do-repositorio<br>
+    git clone https://github.com/thales-t/aiqfome.git <br>
     cd aiqfome<br>
     <br>
     Configure as Variáveis de Ambiente:<br>
