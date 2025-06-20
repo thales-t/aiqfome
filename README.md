@@ -1,5 +1,4 @@
 1. Documentação da API (Swagger/OpenAPI)<br>
-<br>
 Swagger UI: http://localhost:8000/docs<br>
 ReDoc: http://localhost:8000/redoc<br>
 <br>
@@ -24,7 +23,7 @@ Docker e Docker Compose
 <br><br>
 Passos:<br>
 Clone o Repositório:<br>
-    git clone url-do-repositorio<br>
+    git clone https://github.com/thales-t/aiqfome.git <br>
     cd aiqfome<br>
     <br>
     Configure as Variáveis de Ambiente:<br>
