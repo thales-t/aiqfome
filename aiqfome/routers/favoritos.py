@@ -5,7 +5,7 @@ from aiqfome.database import get_db
 from typing import List
 
 
-router = APIRouter(prefix='/clients/me/favorites', tags=['Favorites'])
+router = APIRouter(prefix='/clients/logged/favorites', tags=['Favorites'])
 
 # --- Endpoints de Favoritos ---
 

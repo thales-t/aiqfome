@@ -9,14 +9,14 @@ Autenticação<br>
 <br><br>
 Clientes <br>
     POST /clients/: Cria um novo cliente (requer name, email, password).<br>
-    GET /clients/me/: Retorna os dados do cliente autenticado.<br>
-    PUT /clients/me/: Atualiza os dados (name ou email) do cliente autenticado.<br>
-    DELETE /clients/me/: Remove o cliente autenticado e todos os seus favoritos.<br>
+    GET /clients/logged/: Retorna os dados do cliente autenticado.<br>
+    PUT /clients/logged/: Atualiza os dados (name ou email) do cliente autenticado.<br>
+    DELETE /clients/logged/: Remove o cliente autenticado e todos os seus favoritos.<br>
 <br>
 Favoritos<br>
-    POST /clients/me/favorites/: Adiciona um produto à lista de favoritos do cliente autenticado. Requer o product_id.<br>
-    GET /clients/me/favorites/: Lista todos os produtos favoritos do cliente autenticado.<br>
-    DELETE /clients/me/favorites/{product_id}: Remove um produto da lista de favoritos do cliente autenticado.<br>
+    POST /clients/logged/favorites/: Adiciona um produto à lista de favoritos do cliente autenticado. Requer o product_id.<br>
+    GET /clients/logged/favorites/: Lista todos os produtos favoritos do cliente autenticado.<br>
+    DELETE /clients/logged/favorites/{product_id}: Remove um produto da lista de favoritos do cliente autenticado.<br>
 <br>
 2. Como Rodar o Projeto<br>
 Pré-requisitos:<br>

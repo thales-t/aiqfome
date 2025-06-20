@@ -15,11 +15,11 @@ async def create_client(client: schemas.ClientCreate, db: AsyncSession = Depends
         raise HTTPException(status_code=400, detail="Email already registered")
     return await crud.create_client(db=db, client=client)
 
-@router.get("/me", response_model=schemas.Client, summary="Obter dados do cliente autenticado")
+@router.get("/logged", response_model=schemas.Client, summary="Obter dados do cliente autenticado")
 async def read_client_me(current_client: models.Client = Depends(dependencies.get_current_client)):
     return current_client
 
-@router.put("/me", response_model=schemas.Client, summary="Atualizar dados do cliente autenticado")
+@router.put("/logged", response_model=schemas.Client, summary="Atualizar dados do cliente autenticado")
 async def update_client_me(
     client_update: schemas.ClientUpdate,
     db: AsyncSession = Depends(get_db),
@@ -33,7 +33,7 @@ async def update_client_me(
 
     return await crud.update_client(db, current_client, client_update)
 
-@router.delete("/me", status_code=status.HTTP_204_NO_CONTENT, summary="deletar cliente")
+@router.delete("/logged", status_code=status.HTTP_204_NO_CONTENT, summary="deletar cliente")
 async def delete_client_me(
     db: AsyncSession = Depends(get_db),
     current_client: models.Client = Depends(dependencies.get_current_client)

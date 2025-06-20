@@ -35,3 +35,5 @@ pytest-mock = "^3.14.1"
 httpx = "^0.28.1"
 aiosqlite = "^0.21.0"
 
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

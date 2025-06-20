@@ -5,10 +5,10 @@ from aiqfome.database import get_db
 from fastapi.security import OAuth2PasswordRequestForm
 
 
-router = APIRouter()
+router = APIRouter(tags=["Authentication"])
 
 # --- Endpoints de Autenticação ---
-@router.post("/token", response_model=schemas.Token, tags=['Authentication'], summary="Obter Token de Acesso")
+@router.post("/token", response_model=schemas.Token, summary="Obter Token de Acesso")
 async def login_for_access_token(
     form_data: OAuth2PasswordRequestForm = Depends(), 
     db: AsyncSession = Depends(get_db)
