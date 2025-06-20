@@ -1,5 +1,4 @@
 1. Documentação da API (Swagger/OpenAPI)<br>
-<br>
 Swagger UI: http://localhost:8000/docs<br>
 ReDoc: http://localhost:8000/redoc<br>
 <br>
